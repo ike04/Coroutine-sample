@@ -11,5 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportFragmentManager.beginTransaction()
+            .replace(binding.container.id, ListFragment.newInstance())
+            .commit()
     }
 }
