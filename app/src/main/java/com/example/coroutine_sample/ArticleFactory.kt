@@ -22,9 +22,14 @@ class ArticleFactory(private val article: Article) :
 
 data class Article(
     @SerializedName("likes_count")
-    val likeCount: Int,
+    val likeCount: String,
     val title: String,
     @SerializedName("updated_at")
     val updateDate: String,
-    val url: String
+    val url: String,
+    val user: User
+)
+
+data class User(
+    val name: String
 )
