@@ -2,7 +2,6 @@ package com.example.coroutine_sample
 
 import android.view.View
 import com.example.coroutine_sample.databinding.ViewListCellBinding
-import com.google.gson.annotations.SerializedName
 import com.xwray.groupie.viewbinding.BindableItem
 
 class ArticleFactory(private val article: Article) :
@@ -16,20 +15,4 @@ class ArticleFactory(private val article: Article) :
     override fun initializeViewBinding(view: View): ViewListCellBinding {
         return ViewListCellBinding.bind(view)
     }
-
-//    override fun isSameAs(other: Item<*>): Boolean = (other as? ArticleFactory)?.article?.id == article.id
 }
-
-data class Article(
-    @SerializedName("likes_count")
-    val likeCount: String,
-    val title: String,
-    @SerializedName("updated_at")
-    val updateDate: String,
-    val url: String,
-    val user: User
-)
-
-data class User(
-    val name: String
-)
