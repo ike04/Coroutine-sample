@@ -25,12 +25,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/authorText"
+            android:id="@+id/dateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            tools:text="作成者"
-            android:text="@{item.author}"
+            tools:text="更新日"
+            android:text="@{item.updateDate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/titleText"
             app:layout_constraintTop_toTopOf="@+id/titleText" />

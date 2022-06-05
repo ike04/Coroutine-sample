@@ -19,7 +19,6 @@ class ListFragment : Fragment() {
     private lateinit var binding: ListFragmentBinding
     private val viewModel: ListViewModel by viewModels()
     private val groupAdapter = GroupAdapter<GroupieViewHolder>()
-    private val testData = mutableListOf<Article>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,10 +33,10 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = groupAdapter
 
-        repeat(10) {
-            testData.add(Article("テスト$it", "作者$it"))
+        viewModel.articleList.observe(viewLifecycleOwner) { article ->
+            article?.map { ArticleFactory(it) }?.let { groupAdapter.update(it) }
         }
 
-        groupAdapter.update(testData.map { ArticleFactory(it) })
+        viewModel.fetchArticle("Kotlin", 1)
     }
 }

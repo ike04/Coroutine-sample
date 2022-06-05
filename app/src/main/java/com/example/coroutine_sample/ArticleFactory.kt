@@ -2,6 +2,7 @@ package com.example.coroutine_sample
 
 import android.view.View
 import com.example.coroutine_sample.databinding.ViewListCellBinding
+import com.google.gson.annotations.SerializedName
 import com.xwray.groupie.viewbinding.BindableItem
 
 class ArticleFactory(private val article: Article) :
@@ -20,6 +21,10 @@ class ArticleFactory(private val article: Article) :
 }
 
 data class Article(
+    @SerializedName("likes_count")
+    val likeCount: Int,
     val title: String,
-    val author: String
+    @SerializedName("updated_at")
+    val updateDate: String,
+    val url: String
 )
